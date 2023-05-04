@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    working_dir: /etc/nginx
+    container_name: nginx_proxy
+    image: nginx:latest
+    networks:
+      - ciancinetwork
+    extra_hosts:
+      - "${HOST1}"
+      - "${HOST2}"
+      - "${HOST3}"
+      - "${HOST4}"
+      - "${HOST5}"
+      - "${HOST6}"
+      - "${HOST7}"
+    env_file:
+      - .env_extra_hosts
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./certs:/etc/nginx/ssl:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+
+networks:
+  ciancinetwork:

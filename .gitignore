@@ -1,0 +1,6 @@
+/certs/*.crt
+/certs/*.key
+/nginx/conf.d/*.conf
+!/nginx/conf.d/default.conf
+.env_extra_hosts
+notes.md
