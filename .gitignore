@@ -1,5 +1,6 @@
 /certs/*.crt
 /certs/*.key
+/certs/san.cnf
 /nginx/conf.d/*.conf
 !/nginx/conf.d/default.conf
 .env
