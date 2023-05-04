@@ -2,5 +2,7 @@
 /certs/*.key
 /nginx/conf.d/*.conf
 !/nginx/conf.d/default.conf
+.env
 .env_extra_hosts
+.env_nginx_conf
 notes.md
