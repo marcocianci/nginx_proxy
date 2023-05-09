@@ -1,9 +1,14 @@
 /certs/*.crt
 /certs/*.key
+/certs/*.csr
 /certs/san.cnf
+/certs/*.cnf
+/certs/*.sh
+
 /nginx/conf.d/*.conf
 !/nginx/conf.d/default.conf
 !/nginx/conf.d/default-domain-example.conf
+
 .env
 .env_extra_hosts
 .env_nginx_conf

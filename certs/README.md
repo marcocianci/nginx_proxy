@@ -18,10 +18,13 @@ openssl x509 -req -in localhost.csr -signkey localhost.key -out localhost.crt -e
 > Add file `localhost.crt` to Trusted Root Certification Authorities folder in the Certificate Manager
 
 
-
+cp ./localhost.crt ~/Documents/cert
 
 ```
-cp ./localhost.crt ~/Documents/cert
+cp ./cianci_dev_localhost.* ~/Documents/cert
+cp ./cianci_dev_localhost.crt ~/Documents/cert
+cp ./cianci_dev_localhost.crt ~/Documents/cert
+
 ```
 
 

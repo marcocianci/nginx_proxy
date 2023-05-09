@@ -4,6 +4,7 @@ services:
     build: .
     working_dir: /etc/nginx
     container_name: nginx_proxy
+    restart: unless-stopped
     image: nginx:latest
     networks:
       - ciancinetwork
@@ -15,6 +16,14 @@ services:
       - "${HOST5}"
       - "${HOST6}"
       - "${HOST7}"
+      - "${HOST8}"
+      - "${HOST9}"
+      - "${HOST10}"
+      - "${HOST11}"
+      # 
+      - "${HOST200}"
+      - "${HOST201}"
+
     env_file:
       - .env
     ports:
@@ -24,5 +33,14 @@ services:
       - ./certs:/etc/nginx/ssl:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
 
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://dev.marcocianci.com:80 && curl --insecure --fail https://dev.marcocianci.com:443"]
+      # --insecure or -k to establish a connection to the server with a SELF-SIGNED certificate 
+      interval: 10s
+      timeout: 30s
+      retries: 3
+      start_period: 30s
+
 networks:
   ciancinetwork:
+    external: true
