@@ -6,8 +6,8 @@
 /certs/*.sh
 
 /nginx/conf.d/*.conf
-!/nginx/conf.d/default.conf
-!/nginx/conf.d/default-domain-example.conf
+/nginx/conf.d/default.conf
+/nginx/conf.d/default-domain-example.conf
 
 .env
 .env_extra_hosts
