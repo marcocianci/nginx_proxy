@@ -9,17 +9,6 @@ services:
     - localhost:host-gateway
     - host.docker.internal:host-gateway
     - kubernetes.docker.internal:host-gateway
-    - fashionbrindes.dev.cianci.com.br:host-gateway
-    - admin.fashionbrindes.dev.cianci.com.br:host-gateway
-    - adminfashionbrindes.dev.cianci.com.br:host-gateway
-    - gpt.grpc.dev.cianci.com.br:host-gateway
-    - gpt.nextjs.dev.cianci.com.br:host-gateway
-    - nextjscianci.dev.cianci.com.br:host-gateway
-    - gestaolegal.dev.cianci.com.br:host-gateway
-    - admingestaoyii2.dev.cianci.com.br:host-gateway
-    - gestaoyii2.dev.cianci.com.br:host-gateway
-    - mu.dev.cianci.com.br:host-gateway
-    - mu.dev.marcocianci.com:host-gateway
     healthcheck:
       interval: 10s
       retries: 3

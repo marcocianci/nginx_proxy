@@ -22,3 +22,4 @@ docker-compose copy.yml
 extra_hosts copy.txt
 extra_hosts.txt
 update_hosts.py
+docker-compose.yml
