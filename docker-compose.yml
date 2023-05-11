@@ -1,46 +1,32 @@
-version: "3.9"
-services:
-  web:
-    build: .
-    working_dir: /etc/nginx
-    container_name: nginx_proxy
-    restart: unless-stopped
-    image: nginx:latest
-    networks:
-      - ciancinetwork
-    extra_hosts:
-      - "${HOST1}"
-      - "${HOST2}"
-      - "${HOST3}"
-      - "${HOST4}"
-      - "${HOST5}"
-      - "${HOST6}"
-      - "${HOST7}"
-      - "${HOST8}"
-      - "${HOST9}"
-      - "${HOST10}"
-      - "${HOST11}"
-      # 
-      - "${HOST200}"
-      - "${HOST201}"
-
-    env_file:
-      - .env
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./certs:/etc/nginx/ssl:ro
-      - ./nginx/conf.d:/etc/nginx/conf.d:ro
-
-    healthcheck:
-      test: ["CMD-SHELL", "curl --fail http://dev.marcocianci.com:80 && curl --insecure --fail https://dev.marcocianci.com:443"]
-      # --insecure or -k to establish a connection to the server with a SELF-SIGNED certificate 
-      interval: 10s
-      timeout: 30s
-      retries: 3
-      start_period: 30s
-
 networks:
   ciancinetwork:
     external: true
+services:
+  web:
+    build: .
+    container_name: nginx_proxy
+    extra_hosts:
+    -  localhost:host-gateway
+    -  host2:host-gateway
+    -  host.docker.internal:host-gateway
+    -  kubernetes.docker.internal:host-gateway
+    healthcheck:
+      interval: 10s
+      retries: 3
+      start_period: 30s
+      test:
+      - CMD-SHELL
+      - curl --fail http://dev.marcocianci.com:80 && curl --insecure --fail https://dev.marcocianci.com:443
+      timeout: 30s
+    image: nginx:latest
+    networks:
+    - ciancinetwork
+    ports:
+    - 80:80
+    - 443:443
+    restart: unless-stopped
+    volumes:
+    - ./certs:/etc/nginx/ssl:ro
+    - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    working_dir: /etc/nginx
+version: '3.9'

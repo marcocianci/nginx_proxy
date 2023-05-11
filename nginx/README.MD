@@ -1,4 +1,4 @@
-> ./default-domain-example.conf
+> ./conf.d/default-domain-example.conf
 ```
 upstream service_marcocianci_8202 {
     server csn.dev.marcocianci.com:8202;

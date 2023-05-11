@@ -13,3 +13,13 @@
 .env_extra_hosts
 .env_nginx_conf
 notes.md
+
+
+
+
+.env copy
+docker-compose copy.yml
+extra_hosts copy.txt
+extra_hosts.txt
+rw_docker_compose.py
+update_hosts.py
