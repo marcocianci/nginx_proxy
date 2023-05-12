@@ -4,22 +4,19 @@
 /certs/san.cnf
 /certs/*.cnf
 /certs/*.sh
-
 /nginx/conf.d/*.conf
 /nginx/conf.d/default.conf
 /nginx/conf.d/default-domain-example.conf
-
 .env
 .env_extra_hosts
 .env_nginx_conf
 notes.md
-
 /notes
-
-
 .env copy
 docker-compose copy.yml
 extra_hosts copy.txt
 extra_hosts.txt
 update_hosts.py
 docker-compose.yml
+docker-compose_copy.yml
+extra_hosts_copy.txt
